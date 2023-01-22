@@ -8,16 +8,9 @@ The app provides a basic functionality to leave one-way feedback and view it. Af
 
 ## Running Locally
 
-To run the app locally, clone the repository and create a `.env` file at the root of the project. The `.env` file must contain two two attributes `PORT` and `SESSION_SECRET`
+To run the app locally, clone the repository and start the app with the following terminal command
 
-### Example
-
-```
-PORT=8080
-SESSION_SECRET="s3cr3t"
-```
-
-The `PORT` key tells the app the port to listen on and `SESSION_SECRET` is key to encrypt the session cookies with.
+`$ go run .`
 
 ## Considerations
 
