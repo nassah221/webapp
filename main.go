@@ -17,7 +17,16 @@ func main() {
 	l := log.New(os.Stdout, "[APP] ", log.LstdFlags)
 
 	if err := godotenv.Load(".env"); err != nil {
-		l.Fatal("load .env file", err)
+		l.Println("load .env: ", err)
+
+		l.Println("setting default env vars")
+		// a bit clunky
+		if err := os.Setenv("PORT", "8080"); err != nil {
+			l.Fatal("failed to set port: ", err)
+		}
+		if err := os.Setenv("SESSION_SECRET", "s3cr3t"); err != nil {
+			l.Fatal("failed to set session secret: ", err)
+		}
 	}
 
 	d := db.New()
