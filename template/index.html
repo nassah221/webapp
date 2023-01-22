@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/index.css">
+    <title>Feedback</title>
+</head>
+
+<body>
+    <main>
+        <div class="header-container">
+            <div class="header-title">Feedback History</div>
+            <div class="logout">
+                <a href="/logout">Logout</a>
+            </div>
+        </div>
+        <div class="feedback-container">
+            <div class="feedback-history">
+                {{ range .Feedback }}
+                <div class="comment">
+                    <div class="comment-title">{{ .Title }}</div>
+                    <div class="comment-time">{{ .Time }}</div>
+                    <div class="comment-text">
+                        <em>{{ .Comment }}</em>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+
+            <div class="feedback-form">
+                <form action="/" method="POST">
+                    <textarea name="title" class="title-input" placeholder="Title"></textarea>
+                    <textarea name="comment" class="comment-input" placeholder="Comment"></textarea>
+                    <div>
+                        <button type="submit">Post Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+
+</html>
